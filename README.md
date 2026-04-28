@@ -30,7 +30,7 @@ Este proyecto está diseñado para demostrar cómo realizar operaciones de maner
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/DAVID-DAM/reactive-programming.git
+   git clone https://github.com/Leider-20/reactive-sensors.git
    cd reactive-programming
    ```
 
