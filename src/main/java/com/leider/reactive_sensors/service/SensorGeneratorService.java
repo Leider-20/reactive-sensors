@@ -57,6 +57,6 @@ public class SensorGeneratorService {
     }
 
     public Flux<SensorData> getSensorData(){
-        return sensorRepository.findAll().limitRate(10);
+        return sensorRepository.findAll();
     }
 }
