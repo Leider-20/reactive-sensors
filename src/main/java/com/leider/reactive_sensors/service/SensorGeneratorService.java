@@ -1,6 +1,6 @@
 package com.leider.reactive_sensors.service;
 
-import com.leider.reactive_sensors.model.SensorData;
+import com.leider.reactive_sensors.model.Sensor;
 import com.leider.reactive_sensors.repository.SensorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ public class SensorGeneratorService {
     private final Random random = new Random();
     private final SensorRepository sensorRepository;
 
-    public Flux<SensorData> generateSensorData() {
+    public Flux<Sensor> generateSensorData() {
 
-        Flux<SensorData> temperaturaFlux = Flux
+        Flux<Sensor> temperaturaFlux = Flux
                 .interval(Duration.ofSeconds(1))
-                .map(i -> new SensorData(
+                .map(i -> new Sensor(
                         "TEMP-01",
                         "temperature",
                         20 + random.nextDouble() * 20,
@@ -29,9 +29,9 @@ public class SensorGeneratorService {
                 ));
 
 
-        Flux<SensorData> humidityFlux = Flux
+        Flux<Sensor> humidityFlux = Flux
                 .interval(Duration.ofSeconds(2))
-                .map(i -> new SensorData(
+                .map(i -> new Sensor(
                         "HUM-01",
                         "humidity",
                         40 + random.nextDouble() * 40,
@@ -40,9 +40,9 @@ public class SensorGeneratorService {
                 ));
 
 
-        Flux<SensorData> pressureFlux = Flux
+        Flux<Sensor> pressureFlux = Flux
                 .interval(Duration.ofSeconds(3))
-                .map(i -> new SensorData(
+                .map(i -> new Sensor(
                         "PRESS-01",
                         "pressure",
                         900 + random.nextDouble() * 200,
@@ -56,7 +56,7 @@ public class SensorGeneratorService {
                 });
     }
 
-    public Flux<SensorData> getSensorData(){
+    public Flux<Sensor> getSensorData(){
         return sensorRepository.findAll();
     }
 }

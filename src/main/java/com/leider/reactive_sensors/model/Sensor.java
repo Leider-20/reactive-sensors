@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "sensors")
-public class SensorData {
+public class Sensor {
 
     @Id
     private String id;
@@ -21,7 +21,7 @@ public class SensorData {
     private Double value;
     private LocalDateTime timestamp;
 
-    public SensorData(String sensorId, String type, Double value, LocalDateTime timestamp) {
+    public Sensor(String sensorId, String type, Double value, LocalDateTime timestamp) {
         this.sensorId = sensorId;
         this.type = type;
         this.value = value;

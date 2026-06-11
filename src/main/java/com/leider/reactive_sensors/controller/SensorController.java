@@ -1,7 +1,7 @@
 package com.leider.reactive_sensors.controller;
 
 import com.leider.reactive_sensors.model.Alert;
-import com.leider.reactive_sensors.model.SensorData;
+import com.leider.reactive_sensors.model.Sensor;
 import com.leider.reactive_sensors.service.SensorGeneratorService;
 import com.leider.reactive_sensors.service.SensorProcessorService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class SensorController {
     private final SensorProcessorService sensorProcessorService;
 
     @GetMapping(value = "/sensors", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<SensorData> getSensors(){
+    public Flux<Sensor> getSensors(){
         return sensorGeneratorService.generateSensorData();
     }
 
@@ -30,7 +30,7 @@ public class SensorController {
     }
 
     @GetMapping(value = "/history")
-    public Flux<SensorData> getHistory(){
+    public Flux<Sensor> getHistory(){
         return sensorGeneratorService.getSensorData();
     }
 
