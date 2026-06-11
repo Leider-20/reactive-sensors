@@ -16,7 +16,7 @@ public class AlertService {
     private final SensorGeneratorService sensorGeneratorService;
     private final AlertRepository alertRepository;
 
-    public static Mono<Alert> sendAlert(Alert alert){
+    public Mono<Alert> sendAlert(Alert alert) {
 
         return Mono.just(alert)
                 .delayElement(Duration.ofSeconds(1))
