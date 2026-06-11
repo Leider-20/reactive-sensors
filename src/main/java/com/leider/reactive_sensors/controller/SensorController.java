@@ -3,7 +3,7 @@ package com.leider.reactive_sensors.controller;
 import com.leider.reactive_sensors.model.Alert;
 import com.leider.reactive_sensors.model.Sensor;
 import com.leider.reactive_sensors.service.SensorGeneratorService;
-import com.leider.reactive_sensors.service.SensorProcessorService;
+import com.leider.reactive_sensors.service.AlertService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import reactor.core.publisher.Flux;
 public class SensorController {
 
     private final SensorGeneratorService sensorGeneratorService;
-    private final SensorProcessorService sensorProcessorService;
+    private final AlertService alertService;
 
     @GetMapping(value = "/sensors", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Sensor> getSensors(){
@@ -26,7 +26,7 @@ public class SensorController {
 
     @GetMapping(value = "/alerts", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Alert> getAlerts(){
-        return sensorProcessorService.getAlerts();
+        return alertService.getAlerts();
     }
 
     @GetMapping(value = "/history")
