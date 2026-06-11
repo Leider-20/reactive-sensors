@@ -44,15 +44,19 @@ public class AlertService {
                             sensor.getTimestamp()
                     );
 
+                    //Se guardan y envían las alertas de forma secuencial
                     return alertRepository.save(alert)
                             .flatMap(savedAlert -> sendAlert(savedAlert));
 
 
-                    /*Mono<Alert> saveMonoAlert = alertRepository.save(alert);
+                    //Se guardan y envían las alertas de forma paralela
+                    /*
+                    Mono<Alert> saveMonoAlert = alertRepository.save(alert);
                     Mono<Alert> sendMonoAlert = alertService.sendAlert(alert);
 
                     return Mono.zip(saveMonoAlert, sendMonoAlert)
-                            .map(tuple -> tuple.getT1());*/
+                            .map(tuple -> tuple.getT1());
+                    */
                 });
     }
 
