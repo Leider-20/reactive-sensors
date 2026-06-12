@@ -56,7 +56,7 @@ public class SensorGeneratorService {
                 });
     }
 
-    public Flux<Sensor> getSensorData(){
+    public Flux<Sensor> getSensorHistory(){
         return sensorRepository.findAll();
     }
 }

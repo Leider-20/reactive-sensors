@@ -29,7 +29,7 @@ public class SensorController {
 
     @GetMapping(value = "/history")
     public Flux<Sensor> getHistory(){
-        return sensorGeneratorService.getSensorData();
+        return sensorGeneratorService.getSensorHistory();
     }
 
 
