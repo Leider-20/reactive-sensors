@@ -25,7 +25,8 @@ public class SensorController {
      * Al usar Mono es mejor no usar este MediaType ya que mono devuelve un solo dato no un flujo de datos.
 
      * MediaType.APPLICATION_JSON_VALUE: Se puede usar para mostrar datos en flujos no continuos.
-     * O sea, en flujos de tipo mono. */
+     * Se usa en flujos de tipo mono, aunque no es tan necesario. Al final, simplemente se puede no poner nada y ya.
+     */
 
     /*@ResponseStatus(HttpStatus.FOUND)
     @GetMapping(value = "/mensaje", produces = MediaType.APPLICATION_JSON_VALUE)
